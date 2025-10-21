@@ -64,20 +64,36 @@ pca_fit %>%
 
 Plot 3:
 
+The goal is to plot the proportion of variance explained by each principal component.
+
 ```{r}
 pca_fit %>%
   tidy(matrix = "eigenvalues") %>%
-  ggplot(aes(PC, percent)) +
-  geom_col(fill = "#0000FF", alpha = 0.8) +
+  ggplot(aes(PC, percent, fill = factor(PC == 1))) +
+  geom_col(alpha = 0.8) +
+  scale_fill_manual(
+    values = c("TRUE" = "#D55E00", "FALSE" = "#56B4E9"),
+    guide = "none" 
+  ) +
   scale_x_continuous(breaks = 1:9) +
   scale_y_continuous(
     labels = scales::percent_format(),
     expand = expansion(mult = c(0, 0.01))
   ) +
+  labs(
+    title = "Variance Explained by Principal Components",
+    x = "Principal Component",
+    y = "Variance Explained (in %)"
+  ) +
   theme_minimal_hgrid(12)
-```{r}
+
+
 pca_fit <- biopsy %>% 
   select(where(is.numeric)) %>%
   prcomp(scale = TRUE) 
 ```
 
+We see that PC1 (displayed in orange) explains roughly 65% of the variance, which is why it separates benign vs malignant samples well.
+
+\
+The other PCs (displayed in blue) explain less and less indicating that the contribution is lower for other PCs.
