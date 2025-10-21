@@ -75,4 +75,9 @@ pca_fit %>%
     expand = expansion(mult = c(0, 0.01))
   ) +
   theme_minimal_hgrid(12)
+```{r}
+pca_fit <- biopsy %>% 
+  select(where(is.numeric)) %>%
+  prcomp(scale = TRUE) 
 ```
+
