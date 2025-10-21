@@ -38,6 +38,7 @@ pca_fit %>%
   ) +
   theme_half_open(12) + background_grid()
 ```
+Explanation: Seems like PC1 explains most of the variance in the data (see plot 3 for more info). We are able to distinguish between the benign and malignant categories quite well, although there is still some overlap.
 
 Plot 2: description of founded cells
 
@@ -61,6 +62,7 @@ pca_fit %>%
   coord_fixed() + # fix aspect ratio to 1:1
   theme_minimal_grid(12)
 ```
+Explanation: The variable "mitoses" is the main variable in PC2 and PC2 therefore is somewhat a representation of "mitoses", although other variables such as "bare_nuclei" or "bland_chromatin" also contribute to this component. PC1, however, seems to cover the rest of the variables, indicating some possible cross-correlation between some of the variables. It is probable that PC1 represents a biological characteristic relating to the state of the cell.
 
 Plot 3:
 
@@ -98,3 +100,5 @@ We see that PC1 (displayed in orange) explains roughly 65% of the variance, whic
 
 \
 The other PCs (displayed in blue) explain less and less indicating that the contribution is lower for other PCs.
+
+PC1 is by far the PC that explains most of the variability, and the rest of the PCs explain a low percentage of the variability. This might suggest that reducing the dimensionality of the dataset to the first n PCs (n could be 2, 3 or 4) might be enough to capture the variability in the dataset and therefore be able to perform classification. 
