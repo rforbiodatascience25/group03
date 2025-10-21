@@ -3,6 +3,8 @@ title: "group_document"
 format: html
 ---
 
+## Hi team :)
+
 ```{r}
 #Hey I am ale, this is my section! 
 myname <- 'Ale'
@@ -10,10 +12,17 @@ print(myname)
 ```
 
 ```{r}
+#I'm Carlos, this is my section 
+carlos_name <- 'Carlos'
+print(carlos_name)
+```
+
+```{r}
 #Hey, I am Thelma and this is my section!
 numbers <- c(2, 3 , 4)
 sum (numbers)
 print(sum)
+
 ```
 
 # Marco's section
@@ -35,4 +44,18 @@ New feature
 
 ```{r}
 print("I don't know what to write anymore.")
+```{r}
+#This is Mei Lin section
+
+data = tibble(numbers = c(1,2,3), text = c('A','B','C'))
+
+```
+
+### New features
+
+```{r}
+# add vector with big number
+data <- data |> merge(
+  numbers_big = c(2462,1542,8342)
+)
 ```
