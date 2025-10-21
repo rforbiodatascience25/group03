@@ -13,10 +13,12 @@ print(myname)
 carlos_name <- 'Carlos'
 print(carlos_name)
 
+
 ```{r}
 #Hey, I am Thelma and this is my section!
 numbers <- c(2, 3 , 4)
 sum (numbers)
 print(sum)
+
 ```
 
