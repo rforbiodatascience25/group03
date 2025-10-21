@@ -51,6 +51,7 @@ New feature
 
 ```{r}
 print("I don't know what to write anymore.")
+```
 ```{r}
 #This is Mei Lin section
 
