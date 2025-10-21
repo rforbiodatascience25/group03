@@ -14,3 +14,9 @@ library(cowplot)
 #Import biopsy database 
 biopsy <- read_csv("https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv")
 ```
+
+```{r}
+ggplot() +
+   geom_histogram(aes(biopsy$clump_thickness[1:5]))
+```
+
