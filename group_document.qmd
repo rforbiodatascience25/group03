@@ -1,0 +1,10 @@
+---
+title: "group_document"
+format: html
+---
+
+```{r}
+#Hey I am ale, this is my section! 
+myname <- 'Ale'
+print(myname)
+```
