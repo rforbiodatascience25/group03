@@ -28,3 +28,11 @@ ggplot(df, aes(x, y)) +
   geom_line()
 ```
 
+```{r}
+#This is Mei Lin section
+
+data = tibble(numbers = c(1,2,3), text = c('A','B','C'))
+
+```
+
+
