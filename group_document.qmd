@@ -3,6 +3,8 @@ title: "group_document"
 format: html
 ---
 
+## Hi team :)
+
 ```{r}
 #Hey I am ale, this is my section! 
 myname <- 'Ale'
@@ -10,10 +12,17 @@ print(myname)
 ```
 
 ```{r}
+#I'm Carlos, this is my section 
+carlos_name <- 'Carlos'
+print(carlos_name)
+```
+
+```{r}
 #Hey, I am Thelma and this is my section!
 numbers <- c(2, 3 , 4)
 sum (numbers)
 print(sum)
+
 ```
 
 ```{r}
