@@ -43,4 +43,11 @@ data = tibble(numbers = c(1,2,3), text = c('A','B','C'))
 
 ```
 
+### New features
 
+```{r}
+# add vector with big number
+data <- data |> merge(
+  numbers_big = c(2462,1542,8342)
+)
+```
