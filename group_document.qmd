@@ -3,6 +3,8 @@ title: "group_document"
 format: html
 ---
 
+## Hi team :)
+
 ```{r}
 #Hey I am ale, this is my section! 
 myname <- 'Ale'
