@@ -18,6 +18,13 @@ print(carlos_name)
 ```
 
 ```{r}
+#New feature
+nums <- c(3, 5, 2, 8, 9)
+sum(nums)
+print(sum)
+```
+
+```{r}
 #Hey, I am Thelma and this is my section!
 numbers <- c(2, 3 , 4)
 sum (numbers)
