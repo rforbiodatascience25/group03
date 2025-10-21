@@ -25,7 +25,7 @@ pca_fit <- biopsy %>%
   prcomp(scale = TRUE) 
 ```
 
-Visualization fun
+Plot 1: malingnant and benign classification biopsy
 
 ```{r}
 options(bitmapType = "cairo")
@@ -39,7 +39,7 @@ pca_fit %>%
   theme_half_open(12) + background_grid()
 ```
 
-Plot 2:
+Plot 2: description of founded cells
 
 ```{r}
 arrow_style <- arrow(
@@ -88,6 +88,7 @@ pca_fit %>%
   theme_minimal_hgrid(12)
 
 
+```{r}
 pca_fit <- biopsy %>% 
   select(where(is.numeric)) %>%
   prcomp(scale = TRUE) 
