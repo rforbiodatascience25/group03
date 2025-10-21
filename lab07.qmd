@@ -3,14 +3,38 @@ title: "lab07"
 format: html
 ---
 
+Import libraries
+
 ```{r}
-#Import libraries!
 library(tidyverse)
 library(broom) 
 library(cowplot)
 ```
 
+Import biopsy database
+
 ```{r}
-#Import biopsy database 
 biopsy <- read_csv("https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv")
+```
+
+Only keep numeric values and scale
+
+```{r}
+pca_fit <- biopsy %>% 
+  select(where(is.numeric)) %>%
+  prcomp(scale = TRUE) 
+```
+
+Visualization fun
+
+```{r}
+options(bitmapType = "cairo")
+pca_fit %>%
+  augment(biopsy) %>% 
+  ggplot(aes(.fittedPC1, .fittedPC2, color = outcome)) + 
+  geom_point(size = 1.5) +
+  scale_color_manual(
+    values = c(malignant = "#FF00FF", benign = "#0000FF")
+  ) +
+  theme_half_open(12) + background_grid()
 ```
