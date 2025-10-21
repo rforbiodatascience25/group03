@@ -16,3 +16,10 @@ sum (numbers)
 print(sum)
 ```
 
+New analysis - thelma 
+
+```{r}
+myname <- "Thelma"
+print(myname)
+```
+
