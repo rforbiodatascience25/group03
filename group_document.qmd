@@ -3,7 +3,6 @@ title: "group_document"
 format: html
 ---
 
-
 ```{r}
 #Hey I am ale, this is my section! 
 myname <- 'Ale'
@@ -17,6 +16,10 @@ sum (numbers)
 print(sum)
 ```
 
+# Marco's section
+
+First feature
+
 ```{r}
 library(tidyverse)
 
@@ -28,3 +31,8 @@ ggplot(df, aes(x, y)) +
   geom_line()
 ```
 
+New feature
+
+```{r}
+print("I don't know what to write anymore.")
+```
