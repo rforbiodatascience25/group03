@@ -1,0 +1,22 @@
+---
+title: "lab07"
+format: html
+---
+
+```{r}
+#Import libraries!
+library(tidyverse)
+library(broom) 
+library(cowplot)
+```
+
+```{r}
+#Import biopsy database 
+biopsy <- read_csv("https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv")
+```
+
+```{r}
+ggplot() +
+   geom_histogram(aes(biopsy$clump_thickness[1:5]))
+```
+
