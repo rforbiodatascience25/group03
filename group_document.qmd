@@ -8,3 +8,9 @@ format: html
 myname <- 'Ale'
 print(myname)
 ```
+```{r}
+#I'm Carlos, this is my section 
+carlos_name <- 'Carlos'
+print(carlos_name)
+```
+
