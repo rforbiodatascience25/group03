@@ -1,9 +1,12 @@
 ---
-title: "lab07"
-format: html
+title: "Lab 7 Assignment: Group 03"
+format:
+  html:
+    embed-resources: true
+editor: visual
 ---
 
-Import libraries
+### Import libraries
 
 ```{r}
 library(tidyverse)
@@ -11,7 +14,7 @@ library(broom)
 library(cowplot)
 ```
 
-Import biopsy database
+### Import biopsy database
 
 ```{r}
 biopsy <- read_csv("https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv")
@@ -20,59 +23,76 @@ biopsy <- read_csv("https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv")
 Only keep numeric values and scale
 
 ```{r}
-pca_fit <- biopsy %>% 
-  select(where(is.numeric)) %>%
+pca_fit <- biopsy |>
+  select(where(is.numeric)) |>
   prcomp(scale = TRUE) 
 ```
 
-Plot 1: malingnant and benign classification biopsy
+### Plot 1: malingnant and benign classification biopsy
 
 ```{r}
 options(bitmapType = "cairo")
-pca_fit %>%
-  augment(biopsy) %>% 
-  ggplot(aes(.fittedPC1, .fittedPC2, color = outcome)) + 
+pca_fit |>
+  augment(biopsy) |> 
+  ggplot(aes(.fittedPC1,
+             .fittedPC2,
+             color = outcome)) + 
   geom_point(size = 1.5) +
   scale_color_manual(
-    values = c(malignant = "#FF00FF", benign = "#0000FF")
+    values = c(malignant = "#FF00FF",
+               benign = "#0000FF")
   ) +
   theme_half_open(12) + background_grid()
 ```
 
-Plot 2: description of founded cells
+### Plot 2: description of founded cells
 
 ```{r}
 arrow_style <- arrow(
-  angle = 20, ends = "first", type = "closed", length = grid::unit(8, "pt")
+  angle = 20,
+  ends = "first",
+  type = "closed",
+  length = grid::unit(8, "pt")
 )
 
 # plot rotation matrix
-pca_fit %>%
-  tidy(matrix = "rotation") %>%
-  pivot_wider(names_from = "PC", names_prefix = "PC", values_from = "value") %>%
-  ggplot(aes(PC1, PC2)) +
-  geom_segment(xend = 0, yend = 0, arrow = arrow_style) +
+pca_fit |>
+  tidy(matrix = "rotation") |>
+  pivot_wider(names_from = "PC",
+              names_prefix = "PC",
+              values_from = "value") |>
+  ggplot(aes(PC1,
+             PC2)) +
+  geom_segment(xend = 0,
+               yend = 0,
+               arrow = arrow_style) +
   geom_text(
     aes(label = column),
-    hjust = 1, nudge_x = -0.02, 
+    hjust = 1,
+    nudge_x = -0.02, 
     color = "#FF00FF"
   ) +
-  xlim(-1.25, .5) + ylim(-.5, 1) +
+  xlim(-1.25,
+       .5) + ylim(-.5,
+                  1) +
   coord_fixed() + # fix aspect ratio to 1:1
   theme_minimal_grid(12)
 ```
 
-Plot 3:
+### Plot 3: Variance explained by principle components
 
 The goal is to plot the proportion of variance explained by each principal component.
 
 ```{r}
-pca_fit %>%
-  tidy(matrix = "eigenvalues") %>%
-  ggplot(aes(PC, percent, fill = factor(PC == 1))) +
+pca_fit |>
+  tidy(matrix = "eigenvalues") |>
+  ggplot(aes(PC,
+             percent,
+             fill = factor(PC == 1))) +
   geom_col(alpha = 0.8) +
   scale_fill_manual(
-    values = c("TRUE" = "#D55E00", "FALSE" = "#56B4E9"),
+    values = c("TRUE" = "#FF00FF",
+               "FALSE" = "#0000FF"), 
     guide = "none" 
   ) +
   scale_x_continuous(breaks = 1:9) +
@@ -88,9 +108,8 @@ pca_fit %>%
   theme_minimal_hgrid(12)
 
 
-```{r}
-pca_fit <- biopsy %>% 
-  select(where(is.numeric)) %>%
+pca_fit <- biopsy |> 
+  select(where(is.numeric)) |>
   prcomp(scale = TRUE) 
 ```
 
